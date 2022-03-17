@@ -20,7 +20,7 @@ class ImageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val currentImage = args.image
-        binding.iwLandscape.load(currentImage, R.drawable.ic_error)
+        binding.iwLandscape.load(currentImage, R.drawable.item_image)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

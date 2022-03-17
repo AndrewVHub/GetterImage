@@ -1,5 +1,7 @@
 package com.example.alefimage.views
 
+import android.R.bool
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,9 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.FragmentNavigatorDestinationBuilder
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.alefimage.R
 import com.example.alefimage.adapters.ImageAdapter
 import com.example.alefimage.adapters.decoration.GridSpacingItemDecoration
 import com.example.alefimage.databinding.FragmentHomeBinding
@@ -22,7 +22,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: ImageViewModel by viewModel()
-
+    private var isTabletModeDetermined = false
+    private lateinit var linearLayout: GridLayoutManager
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,12 +33,19 @@ class HomeFragment : Fragment() {
 
         }
 
-        val linearLayout = GridLayoutManager(context, 2)
+        var spanCount = 0
+        context?.let {
+            if (isTablet(it) ){
+                spanCount = 3
+            }else{
+                spanCount = 2
+            }
+        }
+        linearLayout = GridLayoutManager(context, spanCount)
         val marginGrid = 25.toDp(binding.recyclerImage.context)
+        binding.recyclerImage.addItemDecoration(GridSpacingItemDecoration(spanCount, marginGrid, true, 0))
 
-        binding.recyclerImage.addItemDecoration(GridSpacingItemDecoration(2, marginGrid, true, 0))
         binding.recyclerImage.layoutManager = linearLayout
-
         binding.recyclerImage.adapter = adapterImage
 
         viewModel.ld.observe(viewLifecycleOwner){
@@ -59,6 +67,8 @@ class HomeFragment : Fragment() {
             }
         }
 
+
+
     }
 
     override fun onCreateView(
@@ -67,5 +77,13 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+   private fun isTablet(context: Context): Boolean {
+        if (!isTabletModeDetermined) {
+            if (context.getResources().getConfiguration().smallestScreenWidthDp>= 600)
+                return true
+        }
+       return false
     }
 }

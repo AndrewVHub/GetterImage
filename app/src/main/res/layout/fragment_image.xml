@@ -7,23 +7,17 @@
     tools:context=".views.ImageFragment"
     android:background="@color/primaryBlack">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewImage"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/iwLandscape"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/item_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iwLandscape"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/item_image"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
