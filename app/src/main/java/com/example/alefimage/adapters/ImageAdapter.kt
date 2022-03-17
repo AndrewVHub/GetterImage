@@ -17,8 +17,8 @@ class ImageAdapter (
         private val binding = ImageItemBinding.bind(view)
 
         fun bind(item: String) = with(binding) {
-            iwLandscape.load(item, R.drawable.item_image)
-            cardViewImage.setOnClickListener { onClick.invoke(item) }
+            iwLandscape.load(item, R.drawable.ic_error)
+            iwLandscape.setOnClickListener { onClick.invoke(item) }
         }
     }
 
