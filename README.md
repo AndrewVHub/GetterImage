@@ -1,5 +1,5 @@
 # How to get images from the API
-## A very simple application with Images
+### A very simple application with Images
 > *I created it just for fun*
 # Technologies used
 - Programming language: Kotlin
