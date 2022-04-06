@@ -1,5 +1,4 @@
 # How to get images from API in Android app
-### A very simple application with Images
 > *I created it just for fun*
 # Technologies used
 - Programming language: Kotlin
