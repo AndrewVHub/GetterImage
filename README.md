@@ -1,5 +1,5 @@
 # How to get images from API in Android app
-> *I created it just for fun*
+> *I created it just for fun. How to get images from API in Android app*
 # Technologies used
 - Programming language: Kotlin
 - Tool for working with the network: Retrofit
