@@ -1,4 +1,4 @@
-# GetterImage
+# How to get images from the API
 A very simple application with Images
 > *But while it only shows the first 20 characters, just don't tell anyone*
 # Technologies used
